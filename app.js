@@ -4,23 +4,23 @@ const app = express();
 app.set('view engine', 'ejs');
 app.use(express.urlencoded({ extended: true }));
 
-var items = [];
+let items = [];
 
 app.get("/", function (req, res) {
     res.set('Content-Type', 'text/html');
-    var today = new Date();
-    var options = {
+    let today = new Date();
+    let options = {
         weekday: "long",
         day: "numeric",
         month: "long"
     };
-    var day = today.toLocaleDateString("en-US", options);
+    let day = today.toLocaleDateString("en-US", options);
     res.render("list", { kindOfDay: day, newListItems: items });
     // res.send();
 });
 
 app.post("/", function (req, res) {
-    var item = req.body.newItem;
+    let item = req.body.newItem;
     console.log(item);
     items.push(item);
     // res.render("list", { newListItem: item });
