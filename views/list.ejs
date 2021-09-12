@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To Do List</title>
+</head>
+
+<body>
+
+    <h1>
+        <%=kindOfDay %>
+    </h1>
+    <ul>
+
+        <% for(var i=0;i<newListItems.length;i++){ %>
+            <li>
+                <%= newListItems[i] %>
+            </li>
+            <%}%>
+    </ul>
+
+    <form action="/" method="POST">
+        <label for="">Enter a task</label>
+        <input type="text" name="newItem" id="" placeholder="task">
+        <button type="submit" name="button">Add 👀</button>
+    </form>
+</body>
+
+</html>
