@@ -6,7 +6,9 @@ app.set("view engine", "ejs");
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static("public"));
 
-mongoose.connect("mongodb://localhost:27017/todolistdb");
+mongoose.connect(
+  "mongodb+srv://bala418:pi2Nr6x3sXILWrnq@cluster0.wbg5h.mongodb.net/todolistdb"
+);
 
 const itemSchema = new mongoose.Schema({
   name: String,
@@ -104,7 +106,7 @@ app.post("/delete", function (req, res) {
 });
 
 app.get("/:customListName", (req, res) => {
-  console.log(req.params.customListName);
+  console.log("hi", req.params.customListName);
   const customListName = req.params.customListName;
   List.findOne({ name: customListName }, (err, foundList) => {
     if (!err) {
