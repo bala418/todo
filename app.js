@@ -1,14 +1,16 @@
 const express = require("express");
 const app = express();
 const mongoose = require("mongoose");
+require("dotenv").config();
+console.log(process.env);
+
+const url = process.env.MONGODB_URL;
 
 app.set("view engine", "ejs");
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static("public"));
 
-mongoose.connect(
-  "mongodb+srv://bala418:pi2Nr6x3sXILWrnq@cluster0.wbg5h.mongodb.net/todolistdb"
-);
+mongoose.connect(url);
 
 const itemSchema = new mongoose.Schema({
   name: String,
